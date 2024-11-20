@@ -1,19 +1,18 @@
 import { Router } from 'express'
 import { checkSchema } from 'express-validator'
+import AuthController from '../controllers/authController.mjs'
 import UserController from '../controllers/userController.mjs'
 import UserValidator from '../validators/userValidator.mjs'
 
-
 const router = Router()
 
-router.get('/', (req, res) => {
-	res.render('register')
-})
+router.get('/',  UserController.registerForm)
 
 router.post(
   '/',
   checkSchema(UserValidator.userSchema),
-  UserController.registerUser
+  UserController.registerUser,
+  AuthController.login
 )
 
 

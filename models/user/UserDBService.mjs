@@ -5,8 +5,7 @@ class UserDBService {
 		try {
 			return await User.find(filters, projection)
 		} catch (error) {
-			console.log('Error while getting users list', error);
-			return []
+			throw new Error('Error while getting users list: ' + error.message)
 		}
 	}
 	static async create(data) {
@@ -14,7 +13,7 @@ class UserDBService {
 			const user = new User(data)
 			return await user.save()
 		} catch (error) {
-			console.log('Error while creating user', error);
+			throw new Error('Error creating user: ' + error.message)
 		}
 	}
 
@@ -25,7 +24,7 @@ class UserDBService {
 				runValidators: true
 			})
 		} catch (error) {
-			console.log('Error while updating user', error);
+			throw new Error('Error while updating user: ' + error.message)
 		}
 	}
 
@@ -34,21 +33,21 @@ class UserDBService {
 			const user = await User.findOne(filters, projection)
 			return user
 		} catch (error) {
-			throw new Error('Error finding user:', error.message)
+			throw new Error('Error finding user: ' + error.message)
 		}
 	}
 	static async getById(id) {
 		try {
 			return await User.findById(id)
 		} catch (error) {
-			throw new Error('Error finding by id:', error.message)
+			throw new Error('Error finding by id:' + error.message)
 		}		
 	}
 	static async deleteById(id) {
 		try {
 			return await User.findByIdAndDelete(id)
 		} catch (error) {
-			throw new Error('Error deleting:', error.message)
+			throw new Error('Error deleting:' + error.message)
 		}
 	
 	}

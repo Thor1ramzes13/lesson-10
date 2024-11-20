@@ -9,6 +9,17 @@
 <body>
   <div class="register-page">
     <h1 class="register-page__title">Register</h1>
+  
+    <% if (errors && errors.length > 0) { %>
+      <div class="register-page__errors">
+        <ul class="register-page__error-list">
+          <% errors.forEach(error => { %>
+            <li class="register-page__error-item"><%= error.msg %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
     <form action="/register" method="POST" class="register-form">
       <label class="register-form__label">
         Email

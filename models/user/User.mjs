@@ -5,10 +5,10 @@ const { Schema } = mongoose
 const userSchema = new Schema({
   email: {
     type: String,
-    required: [true, 'email is required'],
-    // unique: [true, 'Name is not allowed'],
-    // minlength: [3, 'Name must be at least 3 characters long'],
-    // maxlength: [50, 'Name must be at most 50 characters long'],
+    required: [true, 'Email is required'],
+    unique: [true, 'Email is not allowed'],
+    minlength: [3, 'Email must be at least 3 characters long'],
+    maxlength: [50, 'Email must be at most 50 characters long'],
     trim: true,
   },
   password: {

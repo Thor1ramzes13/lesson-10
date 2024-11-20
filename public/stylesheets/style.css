@@ -578,6 +578,29 @@ h6 {
 
 
 /*--------------------------------------------------------------*/
+
+
+/* Ошибки на странице */
+.register-page__errors {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
+
+.register-page__error-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.register-page__error-item {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
 /*--------------------------------------------------------------*/
 /*--------------------------------------------------------------*/
 /*--------------------------------------------------------------*/

@@ -23,12 +23,13 @@ class UserController {
 			res.status(500).json({ message: error.message })
 		}
 	}
-	static async registerUser(req, res) {
+	static async registerUser(req, res, next) {
 		const errors = validationResult(req)
 		const userData = req.body
+
 		if (!errors.isEmpty()) {
 			if (req.params.id) userData.id = req.params.id
-			return res.render('register', { errors: errors.array(), userData, user: req.user })
+			return res.status(400).render('register', { errors: errors.array(), userData, user: req.user })
 		}
 		try {
 			const userObj = req.body
@@ -36,12 +37,9 @@ class UserController {
 			if (req.params.id) {
 				await UserDBService.update(req.params.id, userObj)
 			} else await UserDBService.create(userObj)
-			
-			res.redirect('/')
+			return next()
 		} catch (error) {
-			res
-				.status(500)
-				.render('register', { errors: [{ msg: error.message }], userData, user: req.user })
+			res.status(500).render('register', { errors: [{ msg: error.message }], userData, user: req.user })
 		}
 	}
 	static async deleteUser(req, res) {
