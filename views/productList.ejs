@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+	<script src="/javascripts/RequestManager.js"></script>
+</head>
+<body>
+  <div class="product-list">
+    <h1 class="product-list__title">Product List</h1>
+
+    <% if (products && products.length > 0) { %>
+      <table class="product-list__table">
+        <thead>
+          <tr>
+            <th class="product-list__header">Name</th>
+            <th class="product-list__header">Price</th>
+            <th class="product-list__header">Quantity</th>
+						<th class="product-list__header">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(product => { %>
+            <tr class="product-list__row" data-id="<%= product.id %>">
+              <td class="product-list__data"><%= product.name %></td>
+              <td class="product-list__data">$<%= product.price.toFixed(2) %></td>
+              <td class="product-list__data"><%= product.quantity %></td>
+							<td class="product-list__actions product-list__data">
+								<a class="product-list__edit" href="/products/addProduct/<%= product.id %>">Edit</a>
+								<button
+									class="product-list__delete"
+									onclick="RequestManager.deleteRequest('/products', '<%= product.id %>' )"
+								>
+									Delete
+								</button>
+							</td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p class="product-list__empty">No products available.</p>
+    <% } %>
+
+		<div class="product-list__links">
+			<a href="/" class="product-list__link">Home</a>
+			<a href="/products/addProduct" class="product-list__link">Add New Product</a>
+		</div>
+  </div>
+</body>
+</html>

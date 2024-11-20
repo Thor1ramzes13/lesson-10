@@ -1,0 +1,587 @@
+/* null */
+
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+*::before,
+*::after {
+	display: inline-block;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+input,
+textarea {
+	width: 100%;
+}
+
+label {
+	display: inline-block;
+}
+
+button,
+select,
+option {
+	cursor: pointer;
+}
+a {
+	display: inline-block;
+	color: inherit;
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+
+
+/*--------------------------------------------------------------*/
+/* Главная страница */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f4f8;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Заголовок */
+.home-page__header {
+  background-color: #007bff;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-page__title {
+  font-size: 28px;
+  margin: 0;
+}
+
+/* Основной блок */
+.home-page__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Ссылки на действия */
+.home-page__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.home-page__link {
+  padding: 12px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-page__link:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+.home-page__footer {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/* Общий контейнер для списка продуктов */
+.product-list {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок списка продуктов */
+.product-list__title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Таблица списка продуктов */
+.product-list__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+/* Заголовки таблицы */
+.product-list__header {
+  background-color: #007bff;
+  color: #fff;
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 2px solid #0056b3;
+}
+
+/* Данные таблицы */
+.product-list__row:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+.product-list__row:nth-child(even) {
+  background-color: #fff;
+}
+
+.product-list__data {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Блок действий */
+.product-list__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Кнопка редактирования */
+.product-list__edit {
+  text-decoration: none;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-list__edit:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* Кнопка удаления */
+.product-list__delete {
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-list__delete:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Ссылки на другие страницы */
+.product-list__links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.product-list__link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.product-list__link:hover {
+  color: #0056b3;
+}
+
+/* Пустое состояние */
+.product-list__empty {
+  text-align: center;
+  color: #999;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .product-list__title {
+    font-size: 20px;
+  }
+
+  .product-list__header, 
+  .product-list__data {
+    font-size: 14px;
+  }
+
+  .product-list__actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .product-list__edit, 
+  .product-list__delete {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/*--------------------------------------------------------------*/
+
+/* Страница добавления товара */
+.add-product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.add-product-page__header {
+  background-color: #007bff;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-page__title {
+  font-size: 28px;
+  margin: 0;
+}
+
+.add-product-page__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Форма */
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-form__field {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-product-form__label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.add-product-form__input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.add-product-form__input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-product-form__submit {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-product-form__submit:hover {
+  background-color: #0056b3;
+}
+
+/* Кнопка возврата */
+.add-product-page__back {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007bff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.add-product-page__back:hover {
+  color: #0056b3;
+}
+
+
+.add-product-page__divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+.add-product-page__error-list {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.add-product-page__error-item {
+  color: #dc3545;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+
+/*--------------------------------------------------------------*/
+/* Страница логина */
+.login-page {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Заголовок страницы */
+.login-page__title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Форма логина */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.login-register {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 18px;
+  color: #333;
+}
+.login-register a {
+  color: #28a745;
+  transition: all 0.3s ease 0s;
+}
+.login-register a:hover {
+  color: #9720e7;
+}
+/* Лейблы формы */
+.login-form__label {
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+}
+
+/* Поля ввода */
+.login-form__input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.login-form__input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Кнопка отправки */
+.login-form__submit {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form__submit:hover {
+  background-color: #0056b3;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .login-page {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .login-page__title {
+    font-size: 20px;
+  }
+
+  .login-form__label,
+  .login-form__input {
+    font-size: 14px;
+  }
+
+  .login-form__submit {
+    font-size: 14px;
+  }
+}
+
+/*--------------------------------------------------------------*/
+.register-page {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Заголовок страницы */
+.register-page__title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Форма регистрации */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+/* Лейблы формы */
+.register-form__label {
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+}
+
+/* Поля ввода */
+.register-form__input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.register-form__input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Кнопка отправки */
+.register-form__submit {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form__submit:hover {
+  background-color: #218838;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  .register-page {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .register-page__title {
+    font-size: 20px;
+  }
+
+  .register-form__label,
+  .register-form__input {
+    font-size: 14px;
+  }
+
+  .register-form__submit {
+    font-size: 14px;
+  }
+}
+
+
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
